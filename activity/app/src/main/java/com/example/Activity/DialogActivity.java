@@ -4,11 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class second_activity extends AppCompatActivity {
+public class DialogActivity extends BaseActivity {
+    private static final String LOG_TAG = "dialog_activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_second);
+        setContentView(R.layout.activity_dialog);
     }
 }

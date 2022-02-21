@@ -15,12 +15,19 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String LOG_TAG = "first_activity";
 
     @Override
     public void onOptionsMenuClosed(Menu menu) {
         super.onOptionsMenuClosed(menu);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String tempData = "something you just typed";
+        outState.putString("data_key", tempData);
     }
 
     @Override
@@ -59,11 +66,28 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(LOG_TAG, "onCreate start");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_first);
+        Log.d(LOG_TAG, this.toString());
+        Log.d(LOG_TAG, "Task id is " + getTaskId());
 
-        Button buttonStart = (Button) findViewById(R.id.buttonStart);
-        buttonStart.setOnClickListener(new View.OnClickListener() {
+        if(savedInstanceState != null) {
+            String tempData = savedInstanceState.getString("data_key");
+            Log.d(LOG_TAG, tempData);
+        }
+
+        Button buttonStartFirstActivity = (Button) findViewById(R.id.buttonStartFirstActivity);
+        buttonStartFirstActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonStartSecondActivity = (Button) findViewById(R.id.buttonStartSecondActivity);
+        buttonStartSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "click button of start please!!!",
@@ -75,6 +99,24 @@ public class MainActivity extends AppCompatActivity {
                 // implicit
                 Intent intent = new Intent("com.example.Activity.ACTION_START");
                 intent.addCategory("android.intent.category.MY_CATEGORY");
+                startActivity(intent);
+            }
+        });
+
+        Button buttonStartNormalActivity = (Button) findViewById(R.id.buttonNormalActivity);
+        buttonStartNormalActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NormalActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button buttonStartDialogActivity = (Button) findViewById(R.id.buttonDialogActivity);
+        buttonStartDialogActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent("com.example.Activity.ACTION_START");
                 startActivity(intent);
             }
         });
@@ -111,6 +153,42 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Log.d(LOG_TAG, "onCreate end");
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(LOG_TAG, "onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "onDestroy");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG, "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(LOG_TAG, "onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(LOG_TAG, "onRestart");
     }
 }

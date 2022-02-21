@@ -4,12 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/buttonStartFirstActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="start" />
+        android:text="start First Activity" />
+    <Button
+        android:id="@+id/buttonStartSecondActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start Second Activity" />
     <Button
         android:id="@+id/buttonBrowser"
         android:layout_width="match_parent"
@@ -25,4 +29,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="call phone" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:id="@+id/buttonNormalActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start normal activity" />
+        <Button
+            android:id="@+id/buttonDialogActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="start dialog activity" />
+    </LinearLayout>
 </LinearLayout>

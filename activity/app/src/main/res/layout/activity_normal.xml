@@ -4,23 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
-    <androidx.appcompat.widget.LinearLayoutCompat
+    tools:context=".NormalActivity">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <Button
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonStartThirdActivity"
-            android:text="Start Third Activity">
-        </Button>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/second_button"
-            android:text="button">
+            android:text="This is a normal activity">
 
-        </Button>
+        </TextView>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

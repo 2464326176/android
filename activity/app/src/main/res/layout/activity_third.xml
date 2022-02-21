@@ -9,11 +9,19 @@
         android:id="@+id/buttonThirdActivityCallPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="call phone" />
+        android:text="call phone"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonThirdActivityCallBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="call back" />
+        android:text="call back"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/buttonFinishAllActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="exit"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
